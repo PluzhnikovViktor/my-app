@@ -1,0 +1,12 @@
+.product{
+    width: 380px;
+    height: 403px;
+}
+.productTitle{
+    margin: 55px 0 0 0;
+
+}
+.productPrice{
+    margin: 8px 0 0 0;
+    float: left;
+}

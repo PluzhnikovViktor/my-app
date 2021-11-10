@@ -1,0 +1,26 @@
+.mainTitle{
+    margin: 64px auto 48px;
+}
+.heading{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 77px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.headingImg{
+    margin: 0 16px;
+}
+
+
+.container{
+    max-width: 100%;
+    margin: 0 360px;
+    display: inline-table;
+
+}
+.product{
+    width: 380px;
+    height: 305px;
+}
