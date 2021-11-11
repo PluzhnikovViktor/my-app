@@ -14,7 +14,7 @@ const Header = () => {
                 </div>
                 <div className={style.containers}>
                     <img className={style.logPeople} src={logPeople} alt="logPeople"/>
-                    <p className={style.authorization}>Sign up  /  Sign in</p>
+                    <p className={style.authorization}><a href='#'>Sign up</a>  /  <a href='#'>Sign in</a> </p>
                 </div>
                 <div className={style.containers}>
                     <img className={style.basket} src={basket} alt="logo"/>

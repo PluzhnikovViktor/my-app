@@ -14,7 +14,7 @@ const Main = () => {
 	// let product = products.map((p, idx) => <Product key={idx} img={products.img} titleProduct={products.title} price={products.price} />);
 
 	return (
-		<main>
+		<main className={style.main}>
 			<div className={style.mainTitle}>
 				<h1 className={style.heading}>
 					I
