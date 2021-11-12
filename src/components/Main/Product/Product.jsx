@@ -5,10 +5,10 @@ import {NavLink} from "react-router-dom";
 export const Product = (props) => {
     return (
         <div className={style.product}>
-            <img className={style.productImg} src={props.img} alt="" align="middle" />
+            <img className={style.productImg} src={props.img} alt="productImg" align="middle" />
             <div className={style.productInfo}>
-              <NavLink 
-                className={style.productTitle} 
+              <NavLink
+                className={style.productTitle}
                 to={`/iceCream${props.id}`}
               >
                 {props.titleProduct}

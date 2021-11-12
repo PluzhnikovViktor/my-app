@@ -1,8 +1,22 @@
 .main{
-    margin:  84px 360px 0;
+    margin:  84px 360px 0px;
     display: flex;
 }
+.pageLinks{
+    position: absolute;
+    top: 127px;
 
+}
+.pageLink{
+    text-decoration: none;
+    color: #212542;
+
+    opacity: 0.5;
+}
+.pageLinkMain{
+    text-decoration: none;
+    color: #212542;
+}
 .productId{
     font-weight: 500;
     font-size: 12px;
@@ -35,6 +49,12 @@
     font-weight: 600;
     font-size: 36px;
     line-height: 36px;
+    text-align: left;
+}
+.descriptionTitle{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
     text-align: left;
 }
 .description{

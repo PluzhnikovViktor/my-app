@@ -6,13 +6,16 @@
     top: 0;
     left: 0;
     transform: scale(0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .modal.active{
     transform: scale(1);
 }
 .modalContent{
     width: 426px;
-    height: 638px;
+    height: 516px;
     background: #FFFFFF;
     border: 1px solid #F4F5FF;
     box-sizing: border-box;
@@ -48,6 +51,7 @@
 
 .nameInput{
     margin-bottom: 10px;
+    float: left;
 }
 .input{
     margin-bottom: 24px;
@@ -55,6 +59,9 @@
 .input:last-child{
     margin-bottom: 32px;
 }
+/*.ques{*/
+/*    display: contents;*/
+/*}*/
 .uReg{
     font-size: 16px;
     line-height: 24px;
@@ -62,4 +69,3 @@
 .modalContent a{
     color: rgba(33, 37, 66, 0.25);
 }
-

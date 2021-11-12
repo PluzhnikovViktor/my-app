@@ -1,0 +1,13 @@
+.main{
+    margin:  84px 360px 0px;
+}
+.pageLinks{
+    float: left;
+}
+.pageLinks a{
+    text-decoration: none;
+    color: black;
+}
+.pageTitle{
+    float: left;
+}

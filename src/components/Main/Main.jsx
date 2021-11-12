@@ -5,13 +5,25 @@ import React, {useState} from "react";
 import {Product} from "./Product";
 import {productsMock} from "../../mocks/mock";
 
-//сначало стили потом картинки
+//сначала стили потом картинки
 import style from './Main.module.css';
 import titleImg from '../../assets/image/titleImg.png'
 
+
 const Main = () => {
 	const [products, setProducts] = useState(productsMock);
-	// let product = products.map((p, idx) => <Product key={idx} img={products.img} titleProduct={products.title} price={products.price} />);
+
+	// let user = {
+	// 	name: 'viktor',
+	// 	email: 'ya@ya.ru',
+	// 	password: '1111',
+	// };
+	//
+	// let yaUser = JSON.stringify(user);
+	// localStorage.setItem("myKey", yaUser);
+	// let returnUser = JSON.parse(localStorage.getItem("myKey"))
+	// console.log(returnUser)
+
 
 	return (
 		<main className={style.main}>
@@ -23,9 +35,8 @@ const Main = () => {
 				</h1>
 			</div>
 			<div className={style.container}>
-				{/*{product}*/}
 				{products.map((product, idx) => (
-					<Product key={idx} img={product.img} titleProduct={product.titleProduct} price={product.price}/>
+					<Product key={idx} id={product.id} img={product.img} titleProduct={product.titleProduct} price={product.price}/>
 				))}
 			</div>
 		</main>

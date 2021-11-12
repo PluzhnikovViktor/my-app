@@ -1,11 +1,12 @@
 import React from "react";
+
 import style from "./Footer.module.css";
 import logoHeader from "../../assets/image/LogoHeader.png";
 
 export const Footer = () => {
     return (
-        <div>
-            <footer className={style.footer}>
+        <footer>
+            <div className={style.footer}>
                 <div className={style.containerFooter}>
                     <div className={style.container}>
                         <img className={style.logoHeader} src={logoHeader} alt="logo"/>
@@ -28,11 +29,11 @@ export const Footer = () => {
                         </div>
                     </div>
                 </div>
-            </footer>
+            </div>
             <div className={style.footerTrademark}>
                 <p className={style.trademark}>© 2021 Justice-team. All rights reserved.</p>
             </div>
-        </div>
+        </footer>
     )
 }
 

@@ -6,25 +6,23 @@
     margin-right: 30px;
 }
 .productImg{
-    margin-left: 88px;
+    margin-bottom: 60px;
 }
 .productInfo{
-    /*display: flex;*/
+    display: flex;
     flex-direction: column;
-    position: relative;
+    height: 98px;
+    text-align: left;
 }
 .productTitle{
-    /*margin: 55px 0 0 24px;*/
-    /*position: absolute;*/
-    /*top: 24px;*/
-    /*left: 24px;*/
-    margin-top: 100px;
+
 
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
     text-decoration: none;
     color: black;
+    float: left;
 }
 .productPrice{
     /*margin: 80px 0 0 0;*/
@@ -36,6 +34,7 @@
     font-weight: 350;
     font-size: 16px;
     line-height: 16px;
+    float: left;
 }
 
 

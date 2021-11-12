@@ -12,6 +12,18 @@
     display: flex;
     margin-right: 763px;
 }
+.login{
+    display: contents;
+    margin: 17px 0 13px 0;
+    width: 115px;
+    height: 16px;
+}
+.login button{
+    background: #F2F2FA;
+    border: none;
+    padding: 0;
+    width: 55px;
+}
 .containers:nth-child(2){
     margin-right: 53px;
 }
@@ -29,12 +41,12 @@
     margin: 11px 10px;
 }
 .authorization{
-    margin: 17px 0 13px 0;
+    /*margin: 17px 0 13px 0;*/
     font-weight: normal;
     font-size: 14px;
     line-height: 16px;
-    width: 115px;
-    height: 16px;
+    /*width: 115px;*/
+    /*height: 16px;*/
 }
 
 /*корзина*/

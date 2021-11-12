@@ -6,6 +6,9 @@
     top: 0;
     left: 0;
     transform: scale(0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .modal.active{
     transform: scale(1);
@@ -48,6 +51,7 @@
 
 .nameInput{
     margin-bottom: 10px;
+    float: left;
 }
 .input{
     margin-bottom: 24px;
