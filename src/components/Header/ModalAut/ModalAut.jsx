@@ -2,15 +2,15 @@ import React, {useEffect, useState} from "react";
 
 import style from "./ModalAut.module.css";
 
-export const ModalAut = ({active, setActive}) => {
+export const ModalAut = ({active, setActive, user, setUser}) => {
 	useEffect(() => {
 		setActive(false);
 	}, [])
 
-	const [user, setUser] = useState({
-		password: '',
-		email: '',
-	});
+	// const [user, setUser] = useState({
+	// 	password: '',
+	// 	email: '',
+	// });
 	const onInputChange = (v) => {
         setUser({ ...user, [v.target.name]: v.target.value });
     }
@@ -23,10 +23,11 @@ export const ModalAut = ({active, setActive}) => {
 		} 
 		let currentUser = users.find(i => i.email == user.email && i.password == user.password);
 		if (currentUser) {
-			alert('залогин')
+			localStorage.setItem('token', user.email);
 		} else {
 			alert('юзер не найден')
 		}
+		setActive(false);
 	}
 
 	return(

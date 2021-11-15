@@ -13,34 +13,43 @@ export const Modal = ({active, setActive}) => {
 		password: '',
 		email: '',
 	});
-	
+
+
+
 	const onInputChange = (v) => {
         setUser({ ...user, [v.target.name]: v.target.value });
     }
 
 	const register = () => {
+
 		let users = JSON.parse(localStorage.getItem('users'));
-		if (users){
-			localStorage.setItem('users', JSON.stringify([...users, user]))
+		if (users) {
+			localStorage.setItem('users', JSON.stringify([...users, user]));
+			alert('Пользователь добавлен');
+
 		} else {
-			localStorage.setItem('users', JSON.stringify([user]))
+			localStorage.setItem('users', JSON.stringify([user]));
+			alert('Пользователь добавлен');
+
 		}
+		setActive(false);
+
 	}
 
 	return(
-		<div className={active ? `${style.modal} ${style.active}` : style.modal} onClick={() => setActive(false)}>
-			<div className={style.modalContent} onClick={e => e.stopPropagation()}>
+		<div id={"modal"} className={active ? `${style.modal} ${style.active}` : style.modal} onClick={() => setActive(false)}>
+			<form onSubmit={register} className={style.modalContent} onClick={e => e.stopPropagation()}>
 				<h3>Create an account</h3>
 				<label className={style.nameInput}>Name</label>
-				<input id="f" className={style.input} placeholder="Your name" name="name" type="text" onChange={onInputChange} />
+				<input required id="f" className={style.input} placeholder="Your name" name="name" type="text" onChange={onInputChange} />
 				<label className={style.nameInput}>Email</label>
-				<input className={style.input} placeholder="Your Email" name='email'  type="email" onChange={onInputChange} />
+				<input required className={style.input} placeholder="Your Email" name='email'  type="email" onChange={onInputChange} />
 				<label className={style.nameInput}>Password</label>
-				<input className={style.input} placeholder="Your password" name="password"  type="password" onChange={onInputChange} />
-				<button className={style.buttonRegister} onClick={register} >Register</button>
+				<input required className={style.input} placeholder="Your password" name="password"  type="password" onChange={onInputChange} />
+				<button className={style.buttonRegister}>Register</button>
 				<p className={style.uReg}>Do you already have an account?</p>
-				<a href="#">Sing in </a>
-			</div>
+				<a href="#">Sing in</a>
+			</form>
 		</div>
 	)
 }

@@ -8,7 +8,7 @@ import {Modal} from "./Modal";
 import {ModalAut} from "./ModalAut";
 import {NavLink} from "react-router-dom";
 
-const Header = () => {
+const Header = ({user, setUser}) => {
 
     const [modalActive, setModalActive] = useState(true);
     const [modalAutActive, setModalAutActive] = useState(true);
@@ -42,8 +42,8 @@ const Header = () => {
                   >Cart</NavLink>
                 </div>
             </div>
-            <Modal active={modalActive} setActive={setModalActive} />
-            <ModalAut active={modalAutActive} setActive={setModalAutActive} />
+            <Modal active={modalActive} setActive={setModalActive}  />
+            <ModalAut active={modalAutActive} setActive={setModalAutActive} user={user} setUser={setUser} />
         </header>
     )
 }

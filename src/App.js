@@ -19,9 +19,14 @@ const App = () => {
     }
   }, [])
 
+  const [user, setUser] = useState({
+    password: '',
+    email: '',
+  });
+
   return (
     <div className="App">
-        <Header />
+        <Header user={user} setUser={setUser} />
         {/*  <Main />*/}
         {/*  <ProductCard />*/}
         {/*<Modal active={modalActive} setActive={setModalActive} />*/}
