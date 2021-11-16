@@ -8,7 +8,7 @@ import {Modal} from "./Modal";
 import {ModalAut} from "./ModalAut";
 import {NavLink} from "react-router-dom";
 
-const Header = ({user, setUser}) => {
+const Header = ({user, setOwner, logout}) => {
 
     const [modalActive, setModalActive] = useState(true);
     const [modalAutActive, setModalAutActive] = useState(true);
@@ -21,13 +21,18 @@ const Header = ({user, setUser}) => {
                 </div>
                 <div className={style.containers}>
                     <img className={style.logPeople} src={logPeople} alt="logPeople"/>
-                    <div className={style.login}>
-
-                            <button onClick={() => setModalActive(true)}>Sign up</button>
-                            <p className={style.authorization}>/</p>
-                            <button onClick={() => setModalAutActive(true)}>Sing in</button>
-
+                  {user ?
+                    <div className={style.loginOn}>
+                      <p className={style.loginName}>{user}</p>
+                      <button onClick={logout} className={style.loginOut}>Log out</button>
                     </div>
+                    :
+                    <div className={style.login}>
+                      <button onClick={() => setModalActive(true)}>Sign up</button>
+                      <p className={style.authorization}>/</p>
+                      <button onClick={() => setModalAutActive(true)}>Sing in</button>
+                    </div>
+                  }
                 </div>
                 <div className={style.containers}>
                     <img className={style.basket} src={basket} alt="logo"/>
@@ -43,7 +48,7 @@ const Header = ({user, setUser}) => {
                 </div>
             </div>
             <Modal active={modalActive} setActive={setModalActive}  />
-            <ModalAut active={modalAutActive} setActive={setModalAutActive} user={user} setUser={setUser} />
+            <ModalAut active={modalAutActive} setActive={setModalAutActive} setOwner={setOwner} />
         </header>
     )
 }

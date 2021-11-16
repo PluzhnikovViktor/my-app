@@ -4,7 +4,25 @@ import {ProductCard} from "./components/Main/Product/ProductCard/ProductCard";
 import {Basket} from "./components/Main/Basket/Basket";
 
 
-export const routes = [
+export const PublicRoutes = [
+	{
+		path: '/main',
+		component: Main,
+		exact: true,
+	},
+	// {
+	// 	path: '/Basket',
+	// 	component: Basket,
+	// 	exact: true,
+	// },
+	{
+		path: '/iceCream:id',
+		component: ProductCard,
+		exact: true,
+	},
+]
+
+export const PrivateRoutes = [
 	{
 		path: '/main',
 		component: Main,

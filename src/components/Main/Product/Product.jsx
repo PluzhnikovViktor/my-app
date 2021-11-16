@@ -2,6 +2,7 @@ import React from "react";
 import style from "./Product.module.css";
 import {NavLink} from "react-router-dom";
 
+
 export const Product = (props) => {
     return (
         <div className={style.product}>
