@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 
 import {ProductInfo} from "./ProductInfo";
@@ -6,27 +6,46 @@ import {ProductInfo} from "./ProductInfo";
 import style from './ProductCard.module.css';
 import {Product} from "../index";
 import {NavLink, useParams} from "react-router-dom";
-// import {cart} from "../../../../mocks/mock";
+import {cart} from "../../../../mocks/mock";
 
 import plus from "../../../../assets/image/plus.svg";
 import minus from "../../../../assets/image/minus.svg";
-import {productsMock} from "../../../../mocks/mock";
+
 
 export const ProductCard = (props) => {
 	const [products, setProducts] = useState(JSON.parse(localStorage.getItem('iceCreams')));
-	const {id} = useParams();
 	const [counter, setCounter] = useState(0)
-	const {img, price, titleProduct, description1, description2} = products.filter(el => el.id === +id)[0]
+	const {id} = useParams();
+
+	const {img, price, titleProduct, description1, description2, total} = products.filter(el => el.id === +id)[0]
+
 	const exam = () => {
-		if (counter <= 0){
-			alert('nonono')
+		const newArray = products.map(e => {
+			if (e.id === id) {
+				if (e.total < counter || counter < 0) {
+					alert('стока нету')
+					return e
+				} else
+				e.total = e.total - counter
+				return e
+			} else {
+				return e
+			}
+		})
+		localStorage.setItem('iceCreams', JSON.stringify(newArray))
+		setProductToCart(newArray)
+	}
+
+	const setProductToCart = (newArray) => {
+		const productToCart = newArray.filter((product) => product.id === +id)[0]
+		const fullProductsCart = JSON.parse(localStorage.getItem('cart'));
+		if (fullProductsCart && fullProductsCart.length > 0) {
+			localStorage.setItem('cart', JSON.stringify([...fullProductsCart, productToCart]))
 		} else {
-			alert('yesyesyes');
-			const obj = {id: id, title: titleProduct, price: price, total: counter};
-			console.log(productsMock[id - 1].total)
-			console.log(productsMock[id - 1].total - counter)
+			localStorage.setItem('cart', JSON.stringify([productToCart]))
 		}
 	}
+
 
 
 	return (

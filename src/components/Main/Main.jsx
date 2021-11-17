@@ -13,18 +13,6 @@ import titleImg from '../../assets/image/titleImg.png'
 const Main = () => {
 	const [products, setProducts] = useState(productsMock);
 
-	// let user = {
-	// 	name: 'viktor',
-	// 	email: 'ya@ya.ru',
-	// 	password: '1111',
-	// };
-	//
-	// let yaUser = JSON.stringify(user);
-	// localStorage.setItem("myKey", yaUser);
-	// let returnUser = JSON.parse(localStorage.getItem("myKey"))
-	// console.log(returnUser)
-
-
 	return (
 		<main className={style.main}>
 			<div className={style.mainTitle}>

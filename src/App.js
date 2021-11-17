@@ -12,47 +12,18 @@ import './App.css';
 export const context = React.createContext(null)
 
 const App = () => {
-  // const [modalActive, setModalActive] = useState(true);
-  // const [modalAutActive, setModalAutActive] = useState(true);
-
-
-  const [owner, setOwner] = useState()
-
 
   useEffect(() => {
-
     console.log(localStorage.getItem('token'))
     setOwner(localStorage.getItem('token'))
-
   },[])
-
   useEffect(() => {
     if (!JSON.parse(localStorage.getItem('iceCreams'))) {
       localStorage.setItem('iceCreams', JSON.stringify(productsMock))
     }
   }, [])
 
-
-  //
-  // const login = (value, setValue) => {
-  //   const users = JSON.parse(localStorage.getItem('users'));
-  //   const customer = users.filter(e => e.email === value.email)[0]
-  //   if (customer) {
-  //     if (customer.password === value.password){
-  //       localStorage.setItem('token', JSON.stringify(customer.email))
-  //     } else {
-  //       setValue('Неправильные данные');
-  //     }
-  //   } else {
-  //     setValue('Неправильные данные');
-  //   }
-  // }
-  //
-  // const logout = () => {
-  //   localStorage.removeItem('token')
-  //   setUser(null)
-  // }
-
+  const [owner, setOwner] = useState()
   const logout = () => {
     localStorage.removeItem('token')
     setOwner(null)
@@ -61,10 +32,6 @@ const App = () => {
   return (
     <div className="App">
         <Header user={owner} setOwner={setOwner} logout={logout} />
-        {/*  <Main />*/}
-        {/*  <ProductCard />*/}
-        {/*<Modal active={modalActive} setActive={setModalActive} />*/}
-        {/*<ModalAut active={modalAutActive} setActive={setModalAutActive} />*/}
       <context.Provider value={owner}>
         <Switch>
             {owner ?
