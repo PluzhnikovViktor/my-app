@@ -10,7 +10,7 @@ import style from './Main.module.css';
 import titleImg from '../../assets/image/titleImg.png'
 
 
-const Main = () => {
+const Main = (number) => {
 	const [products, setProducts] = useState(productsMock);
 
 	return (
@@ -24,7 +24,7 @@ const Main = () => {
 			</div>
 			<div className={style.container}>
 				{products.map((product, idx) => (
-					<Product key={idx} id={product.id} img={product.img} titleProduct={product.titleProduct} price={product.price}/>
+					<Product number={number} key={idx} id={product.id} img={product.img} titleProduct={product.titleProduct} price={product.price}/>
 				))}
 			</div>
 		</main>

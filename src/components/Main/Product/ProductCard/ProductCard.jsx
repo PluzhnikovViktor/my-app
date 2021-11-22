@@ -17,17 +17,18 @@ export const ProductCard = (props) => {
 	const [counter, setCounter] = useState(0)
 	const {id} = useParams();
 
-	const {img, price, titleProduct, description1, description2, total} = products.filter(el => el.id === +id)[0]
+	const {img, price, titleProduct, description1, description2} = products.filter(el => el.id === +id)[0]
 
 	const exam = () => {
 		const newArray = products.map(e => {
-			if (e.id === id) {
+			if (e.id === +id) {
 				if (e.total < counter || counter < 0) {
 					alert('стока нету')
 					return e
-				} else
-				e.total = e.total - counter
-				return e
+				} else {
+					e.total = e.total - counter
+					return e
+				}
 			} else {
 				return e
 			}
@@ -38,11 +39,17 @@ export const ProductCard = (props) => {
 
 	const setProductToCart = (newArray) => {
 		const productToCart = newArray.filter((product) => product.id === +id)[0]
-		const fullProductsCart = JSON.parse(localStorage.getItem('cart'));
-		if (fullProductsCart && fullProductsCart.length > 0) {
-			localStorage.setItem('cart', JSON.stringify([...fullProductsCart, productToCart]))
-		} else {
-			localStorage.setItem('cart', JSON.stringify([productToCart]))
+		console.log(productToCart);
+		console.log(counter);
+		console.log(productToCart.total)
+		if (productToCart.total >= counter && counter !== 0){
+			console.log('sdfsdf')
+			const fullProductsCart = JSON.parse(localStorage.getItem('cart'));
+			if (fullProductsCart && fullProductsCart.length > 0) {
+				localStorage.setItem('cart', JSON.stringify([...fullProductsCart, productToCart]))
+			} else {
+				localStorage.setItem('cart', JSON.stringify([productToCart]))
+			}
 		}
 	}
 

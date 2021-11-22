@@ -20,23 +20,22 @@ main{
 
 .container{
     max-width: 100%;
-    margin: 0 360px;
-    /*display: inline-table;*/
+
     display: flex;
     flex-wrap: wrap;
 }
 .product{
     width: 380px;
-    height: 305px;
+    height: 403px;
 }
 
 @media screen and (max-width: 1200px){
     .container{
-        margin: 0 250px;
+
     }
 }
 @media screen and (max-width: 992px){
     .container{
-        margin: 0 100px;
+        width: 80%;
     }
 }

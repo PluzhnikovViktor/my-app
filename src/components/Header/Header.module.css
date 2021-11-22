@@ -1,21 +1,22 @@
 .header{
-    max-width: 1920px;
+    max-width: 1200px;
     height: 86px;
+    margin: 0 auto;
 
     display: flex;
 }
 .containerHeader{
     display: flex;
-    margin: 20px 360px 20px 360px;
+    margin: 20px 0 20px 0;
 }
-.containers{
+.container{
     display: flex;
-    margin-right: 763px;
+    margin-right: 730px;
 }
-.containers:nth-child(2){
+.container:nth-child(2){
     margin-right: 53px;
 }
-.containers:nth-child(3){
+.container:nth-child(3){
     margin-right: 0px;
 }
 
@@ -32,7 +33,7 @@
 .loginOn{
     display: contents;
     margin: 17px 0 13px 0;
-    width: 115px;
+    width: 200px;
     height: 16px;
 }
 .login button{
@@ -44,7 +45,7 @@
     line-height: 16px;
 }
 .loginName{
-
+    width: 200px;
  }
 .loginOut{
     width: 70px;
@@ -105,64 +106,81 @@
     top: 4px;
 }
 .basketName{
-    font-weight: normal;
     font-size: 14px;
     line-height: 16px;
+    text-decoration: none;
+    color: black;
+    margin-top: 15px;
 }
 
 /*корзина*/
 
-@media screen and (max-width: 1800px){
-    .containers{
-        margin-right: 763px;
-    }
-    .containerHeader{
-        display: flex;
-        margin: 20px 300px 20px 300px;
-    }
-}
-@media screen and (max-width: 1600px){
-    .containers{
+@media (min-width: 992px) and (max-width: 1199px){
+    .container{
         margin-right: 500px;
     }
     .containerHeader{
         display: flex;
-        margin: 20px 300px 20px 300px;
     }
 }
-@media screen and (max-width: 1400px){
-    .containers{
-        margin-right: 500px;
-    }
-    .containerHeader{
-        display: flex;
-        margin: 20px 200px 20px 200px;
-    }
-}
-@media screen and (max-width: 1200px){
-    .containers{
+@media (min-width: 768px) and (max-width: 992px){
+    .container{
         margin-right: 300px;
     }
     .containerHeader{
         display: flex;
-        margin: 20px 200px 20px 200px;
     }
 }
-@media screen and (max-width: 992px){
-    .containers{
-        margin-right: 250px;
+@media (min-width: 400px) and (max-width: 768px){
+    .container{
+        margin-right: 50px;
     }
     .containerHeader{
         display: flex;
-        margin: 20px 100px 20px 100px;
     }
 }
-@media screen and (max-width: 768px){
-    .containers{
-        margin-right: 150px;
-    }
-    .containerHeader{
-        display: flex;
-        margin: 20px 60px 20px 60px;
-    }
-}
+/*@media screen and (max-width: 1600px){*/
+/*    .containers{*/
+/*        margin-right: 500px;*/
+/*    }*/
+/*    .containerHeader{*/
+/*        display: flex;*/
+/*        margin: 20px 300px 20px 300px;*/
+/*    }*/
+/*}*/
+/*@media screen and (max-width: 1400px){*/
+/*    .containers{*/
+/*        margin-right: 500px;*/
+/*    }*/
+/*    .containerHeader{*/
+/*        display: flex;*/
+/*        margin: 20px 200px 20px 200px;*/
+/*    }*/
+/*}*/
+/*@media screen and (max-width: 1200px){*/
+/*    .containers{*/
+/*        margin-right: 300px;*/
+/*    }*/
+/*    .containerHeader{*/
+/*        display: flex;*/
+/*        margin: 20px 200px 20px 200px;*/
+/*    }*/
+/*}*/
+/*@media screen and (max-width: 992px){*/
+/*    .containers{*/
+/*        margin-right: 250px;*/
+/*    }*/
+/*    .containerHeader{*/
+/*        display: flex;*/
+/*        margin: 20px 100px 20px 100px;*/
+/*    }*/
+/*}*/
+/*@media screen and (max-width: 768px){*/
+/*    .containers{*/
+/*        margin-right: 150px;*/
+/*    }*/
+/*    .containerHeader{*/
+/*        display: flex;*/
+/*        margin: 20px 60px 20px 60px;*/
+/*    }*/
+/*}*/
