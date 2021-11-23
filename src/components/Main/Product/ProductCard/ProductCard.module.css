@@ -1,5 +1,5 @@
 .main{
-    margin:  84px 360px 0px;
+    margin:  84px 0 0 0;
     display: flex;
 }
 .pageLinks{
@@ -45,6 +45,36 @@
 .descProduct{
     width: 500px;
 }
+.counterPrice{
+    display: flex;
+    margin-bottom: 48px;
+}
+.counterContainer{
+    height: 32px;
+    width: 100px;
+}
+.counterControl{
+    width: 32px;
+    height: 32px;
+    background: #EEEEEE;
+    border: none;
+}
+.counterControl:first-child img{
+    width: 14px;
+    height: 14px;
+}
+.counterControl:last-child{
+    margin-top: 15px;
+}
+
+.counterInput{
+    width: 30px;
+    font-size: 16px;
+    line-height: 16px;
+    color: rgba(33, 37, 66, 0.7);
+    border: none;
+    text-align: center;
+}
 .title{
     font-weight: 600;
     font-size: 36px;
@@ -63,12 +93,16 @@
     color: rgba(33, 37, 66, 0.7);
     text-align: left;
 }
+.descriptionContainer{
+    width: 498px;
+    height: 198px;
+}
 .price{
     font-size: 24px;
     line-height: 16px;
     color: rgba(33, 37, 66, 0.7);
     text-align: left;
-    margin-top: 40px;
+    margin-right: 24px;
 }
 .buy{
     width: 180px;

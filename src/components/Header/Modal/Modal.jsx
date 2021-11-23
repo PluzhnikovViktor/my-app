@@ -7,7 +7,7 @@ export const Modal = ({active, setActive}) => {
 	useEffect(() => {
 		setActive(false);
 	}, [])
-	
+
 	const [user, setUser] = useState({
 		name: '',
 		password: '',
@@ -16,24 +16,21 @@ export const Modal = ({active, setActive}) => {
 
 
 
+
 	const onInputChange = (v) => {
         setUser({ ...user, [v.target.name]: v.target.value });
     }
 
 	const register = () => {
-
 		let users = JSON.parse(localStorage.getItem('users'));
 		if (users) {
 			localStorage.setItem('users', JSON.stringify([...users, user]));
 			alert('Пользователь добавлен');
-
 		} else {
 			localStorage.setItem('users', JSON.stringify([user]));
 			alert('Пользователь добавлен');
-
 		}
 		setActive(false);
-
 	}
 
 	return(
@@ -42,10 +39,10 @@ export const Modal = ({active, setActive}) => {
 				<h3>Create an account</h3>
 				<label className={style.nameInput}>Name</label>
 				<input required id="f" className={style.input} placeholder="Your name" name="name" type="text" onChange={onInputChange} />
-				<label className={style.nameInput}>Email</label>
+				<label className={style.nameInput} >Email</label>
 				<input required className={style.input} placeholder="Your Email" name='email'  type="email" onChange={onInputChange} />
 				<label className={style.nameInput}>Password</label>
-				<input required className={style.input} placeholder="Your password" name="password"  type="password" onChange={onInputChange} />
+				<input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$" className={style.input} placeholder="Your password" name="password"  type="password" onChange={onInputChange} />
 				<button className={style.buttonRegister}>Register</button>
 				<p className={style.uReg}>Do you already have an account?</p>
 				<a href="#">Sing in</a>

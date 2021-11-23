@@ -1,21 +1,24 @@
 import React, {useState} from "react";
-import style from "./Basket.module.css";
+
 import {NavLink} from "react-router-dom";
-// import {cart} from "../../../mocks/mock";
-// import {CartElem} from "./CartElem/CartElem";
 import { CartElem } from "./CartElem/CartElem";
 
+import style from "./Basket.module.css";
 
 export const Basket = () => {
 
-	const cart = useState(JSON.parse(localStorage.getItem('cart')));
-	// alert(JSON.parse(localStorage.getItem('cart')))
+	const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
 	console.log(cart)
-
-
-
-
-	
+	const [total, setTotal] = useState(0)
+	const sumItems = () => {
+		let sum = 0;
+		cart.forEach((item) => {
+			let price = item.price.replace('$', '')
+			let calculation = price * item.total;
+			sum += calculation;
+		})
+		setTotal(sum)
+	};
 
 	return (
 		<main className={style.main}>
@@ -28,13 +31,14 @@ export const Basket = () => {
 					<NavLink className={style.pageLinkMain} to={'#!'}> Basket</NavLink>
 				</span>
 			</div>
-
 			<br />
 			<h1 className={style.pageTitle}>Basket</h1>
 			<div className={style.container}>
 				<div className={style.cartContainer}>
-					{cart[0].map((item, idx) => (
+					{cart.map((item, idx) => (
 						<CartElem
+							setCart={setCart}
+							cart={cart}
 							key={idx}
 							id={item.id}
 							img={item.img}
@@ -44,11 +48,17 @@ export const Basket = () => {
 					))}
 				</div>
 				<div className={style.subContainer}>
-					<p>Sub total: </p>
-					<p>итого: </p>
-					<button className={style.buttonTotal}>Check out</button>
+					<div className={style.totalSum}>
+						<p>Sub total</p>
+						<p>${total}</p>
+					</div>
+					<button
+						className={style.buttonTotal}
+						onClick={sumItems}
+					>
+						Check out
+					</button>
 				</div>
-
 			</div>
 		</main>
 	)

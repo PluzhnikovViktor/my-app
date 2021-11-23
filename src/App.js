@@ -23,7 +23,6 @@ const App = () => {
     }
   }, [])
 
-
   const [owner, setOwner] = useState()
   const logout = () => {
     localStorage.removeItem('token')

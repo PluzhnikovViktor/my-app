@@ -1,5 +1,8 @@
 main{
-    min-height: calc(100vh - 84px - 155px);
+    min-height: calc(100vh - 86px - 155px);
+}
+.main{
+
 }
 .mainTitle{
     margin: 64px auto 48px;

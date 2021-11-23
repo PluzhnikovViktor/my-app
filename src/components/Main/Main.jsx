@@ -9,7 +9,6 @@ import {productsMock} from "../../mocks/mock";
 import style from './Main.module.css';
 import titleImg from '../../assets/image/titleImg.png'
 
-
 const Main = (number) => {
 	const [products, setProducts] = useState(productsMock);
 
