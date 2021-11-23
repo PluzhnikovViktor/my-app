@@ -20,66 +20,107 @@ export const ProductCard = (props) => {
 	} = products.filter(el => el.id === +id)[0]
 
 	const productToCart = () => {
-		let isError = false;
-		const newIceCream = products.map(e => {
+		const newArray = products.map(e => {
 			if (e.id === +id) {
-				if (e.total >= counter && counter > 0) {
-					isError = false
+				if (e.total < counter || counter < 0) {
+					alert('стока нету')
+					return e
+				} else {
+					// e.total = e.total - counter
+					// return e
 					return {
 						...e,
 						total: e.total - counter
 					}
 				}
-				isError = true
-				return e
-
 			} else {
 				return e
 			}
 		})
-		localStorage.setItem('iceCreams', JSON.stringify(newIceCream))
+		
+		localStorage.setItem('iceCreams', JSON.stringify(newArray))
+		setProductToCart(newArray)
+	}
 
-		const product = products.filter((product) => product.id === +id)[0]
-		const productToCart = newIceCream.filter((product) => product.id === +id)[0]
-
-		console.log(product.total)
-		console.log(productToCart.total)
-
-		if (product.total !== productToCart.total) {
-			const total = product.total - productToCart.total
-
-			const arrayToCart = products.map(e => {
-				if (e.id === +id) {
-					if (e.total >= counter && counter > 0) {
-						return {
-							...e,
-							total: total
-						}
-					}
-					return e
-
-				} else {
-					return e
-				}
-			})
-			const prod = arrayToCart.filter((product) => product.id === +id)[0]
-
-			const dsad = JSON.parse(localStorage.getItem('cart'))
-
-			if (!isError) {
-				console.log('===>dsad', dsad);
-				console.log('===>isError', isError);
-				console.log('===>prod', prod);
-				if (dsad) {
-					localStorage.setItem('cart', JSON.stringify([...dsad, prod]))
-				} else {
-					localStorage.setItem('cart', JSON.stringify([prod]))
-				}
+	const setProductToCart = (newArray) => {
+		const productToCart = newArray.filter((product) => product.id === +id)[0]
+		
+		if (productToCart.total >= counter && counter !== 0){
+			
+			const fullProductsCart = JSON.parse(localStorage.getItem('cart'));
+			if (fullProductsCart && fullProductsCart.length > 0) {
+				productToCart.total = counter
+				localStorage.setItem('cart', JSON.stringify([...fullProductsCart, productToCart]))
+				
+			} else {
+				productToCart.total = counter
+				localStorage.setItem('cart', JSON.stringify([productToCart]))
+				
 			}
 		}
 	}
 
-	const setProductToCart = (newArray, total) => {
+	// const productToCart = () => {
+	// 	let isError = false;
+	// 	const newIceCream = products.map(e => {
+	// 		if (e.id === +id) {
+	// 			if (e.total >= counter && counter > 0) {
+	// 				isError = false
+					// return {
+					// 	...e,
+					// 	total: e.total - counter
+					// }
+	// 			}
+	// 			isError = true
+	// 			return e
+
+	// 		} else {
+	// 			return e
+	// 		}
+	// 	})
+	// 	localStorage.setItem('iceCreams', JSON.stringify(newIceCream))
+
+	// 	const product = products.filter((product) => product.id === +id)[0]
+	// 	const productToCart = newIceCream.filter((product) => product.id === +id)[0]
+
+	// 	console.log(product.total)
+	// 	console.log(productToCart.total)
+
+	// 	if (product.total !== productToCart.total) {
+	// 		const total = product.total - productToCart.total
+
+	// 		const arrayToCart = products.map(e => {
+	// 			if (e.id === +id) {
+	// 				if (e.total >= counter && counter > 0) {
+	// 					return {
+	// 						...e,
+	// 						total: total
+	// 					}
+	// 				}
+	// 				return e
+
+	// 			} else {
+	// 				return e
+	// 			}
+	// 		})
+	// 		const prod = arrayToCart.filter((product) => product.id === +id)[0]
+
+	// 		const dsad = JSON.parse(localStorage.getItem('cart'))
+
+	// 		if (!isError) {
+	// 			console.log('===>dsad', dsad);
+	// 			console.log('===>isError', isError);
+	// 			console.log('===>prod', prod);
+	// 			if (dsad) {
+	// 				localStorage.setItem('cart', JSON.stringify([...dsad, prod]))
+	// 			} else {
+	// 				localStorage.setItem('cart', JSON.stringify([prod]))
+	// 			}
+	// 		}
+	// 	}
+	// }
+
+	// const setProductToCart = (newArray, total) => {
 
 		// if (product.total >= counter && counter > 0 ){
 		// 	productToCart.total = counter
@@ -92,7 +133,7 @@ export const ProductCard = (props) => {
 		// } else {
 		// 	alert('Товар отсутствует')
 		// }
-	}
+	// }
 
 	return (
 		<main className={style.main}>
