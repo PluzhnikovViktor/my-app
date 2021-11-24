@@ -13,14 +13,43 @@ export const Modal = ({active, setActive}) => {
 		password: '',
 		email: '',
 	});
+	const buttonDisabled = useState(true)
+	
 
+	
 
-
+	const validationPassword = (password) => {
+		const regexPassword = new RegExp(
+			`^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{${8},})`
+		);
+		return regexPassword.test(password);
+	};
+	
+	const validationName = (name) => {
+		const regexName = new RegExp(`^(?=.*[a-z])(?=.*[A-Z])(?=.{${6},})`);
+		return regexName.test(name);
+	  };
+	  
+	const validationEmail = (email) => {
+		const regexEmail =
+		  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return regexEmail.test(email);
+	  };
 
 	const onInputChange = (v) => {
+		
+	
         setUser({ ...user, [v.target.name]: v.target.value });
-    }
+		if(validationPassword(user.password)
+			&& validationName(user.name)
+			&& validationEmail(user.email)){
 
+			buttonDisabled[1](false)
+		} else {
+			buttonDisabled[1](true)
+		}
+    }
+	
 	const register = () => {
 		let users = JSON.parse(localStorage.getItem('users'));
 		if (users) {
@@ -30,6 +59,7 @@ export const Modal = ({active, setActive}) => {
 			localStorage.setItem('users', JSON.stringify([user]));
 			alert('Пользователь добавлен');
 		}
+		buttonDisabled(true)
 		setActive(false);
 	}
 
@@ -38,12 +68,12 @@ export const Modal = ({active, setActive}) => {
 			<form onSubmit={register} className={style.modalContent} onClick={e => e.stopPropagation()}>
 				<h3>Create an account</h3>
 				<label className={style.nameInput}>Name</label>
-				<input required id="f" pattern={"^[a-z,A-Z]$"} className={style.input} placeholder="Your name" name="name" type="text" onChange={onInputChange} />
+				<input className={style.input} placeholder="Your name" name="name" type="text" onChange={onInputChange} />
 				<label className={style.nameInput} >Email</label>
-				<input required className={style.input} placeholder="Your Email" name='email'  type="email" onChange={onInputChange} />
+				<input className={style.input} placeholder="Your Email" name='email'  type="email" onChange={onInputChange} />
 				<label className={style.nameInput}>Password</label>
-				<input required pattern={"^[a-z,A-Z]{1,10}$"} className={style.input} placeholder="Your password" name="password"  type="password" onChange={onInputChange} />
-				<button className={style.buttonRegister}>Register</button>
+				<input className={style.input} placeholder="Your password" name="password"  type="password" onChange={onInputChange} />
+				<button className={style.buttonRegister} disabled={buttonDisabled[0]}>Register</button>
 				<p className={style.uReg}>Do you already have an account?</p>
 				<a href="#">Sing in</a>
 			</form>

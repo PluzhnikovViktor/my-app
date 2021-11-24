@@ -30,7 +30,7 @@
     box-sizing: border-box;
     border-radius: 8px;
 }
-.input:invalid{
+.inputInvalid{
     border-color: red;
 }
 .input::placeholder{
