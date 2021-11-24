@@ -11,11 +11,14 @@ import basket from '../../assets/image/basket.png';
 import ellipse from '../../assets/image/ellipse.png';
 
 
-const Header = ({user, setOwner, logout}) => {
+
+const Header = ({user, setOwner, logout, number}) => {
 
     const [modalActive, setModalActive] = useState(true);
     const [modalAutActive, setModalAutActive] = useState(true);
     // const [number, setNumber] = useState(JSON.parse(localStorage.getItem("cart")).length);
+
+
 
     return (
         <header className={style.header}>
@@ -52,7 +55,7 @@ const Header = ({user, setOwner, logout}) => {
                     <img className={style.basket} src={basket} alt="logo"/>
                     <div className={style.basketNum}>
                         <img className={style.ellipse} src={ellipse} alt="logPeople"/>
-                        <p className={style.number}>{}</p>
+                        <p className={style.number}>{number}</p>
                     </div>
                   <NavLink
                     className={style.basketName}

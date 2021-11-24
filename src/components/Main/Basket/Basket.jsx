@@ -1,11 +1,16 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 
 import {NavLink} from "react-router-dom";
 import { CartElem } from "./CartElem/CartElem";
 
 import style from "./Basket.module.css";
+import {setCountCart} from "../../../App";
+
+
 
 export const Basket = () => {
+
+	// const countCart = useContext(setCountCart)
 
 	const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
 	console.log(cart)
@@ -18,6 +23,7 @@ export const Basket = () => {
 			sum += calculation;
 		})
 		setTotal(sum)
+
 	};
 
 	return (

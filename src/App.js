@@ -5,11 +5,12 @@ import React from "react";
 import Header from "./components/Header/Header";
 import {Footer} from "./components/Footer/index.js";
 import {PublicRoutes, PrivateRoutes} from "./routes";
-import {productsMock} from "./mocks/mock";
+import {cart, productsMock} from "./mocks/mock";
 
 import './App.css';
 
 export const context = React.createContext(null)
+export const setCountCart = React.createContext(null)
 
 const App = () => {
 
@@ -22,6 +23,11 @@ const App = () => {
       localStorage.setItem('iceCreams', JSON.stringify(productsMock))
     }
   }, [])
+  useEffect(() => {
+    if (!JSON.parse(localStorage.getItem('cart'))) {
+      localStorage.setItem('cart', JSON.stringify(cart))
+    }
+  }, [])
 
   const [owner, setOwner] = useState()
   const logout = () => {
@@ -29,10 +35,15 @@ const App = () => {
     setOwner(null)
   }
 
+  const [number, setNumber] = useState([].length);
+
+  console.log(number)
+
   return (
     <div className="App">
-        <Header user={owner} setOwner={setOwner} logout={logout} />
+        <Header user={owner} setOwner={setOwner} logout={logout} number={number} />
       <context.Provider value={owner}>
+        <setCountCart.Provider value={setNumber}>
         <Switch>
             {owner ?
               PrivateRoutes.map((route, index) => {
@@ -53,6 +64,8 @@ const App = () => {
             }
           <Redirect path='/' to='/main'/>
         </Switch>
+
+      </setCountCart.Provider>
       </context.Provider>
         <Footer />
     </div>

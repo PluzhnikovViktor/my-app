@@ -25,10 +25,13 @@
 .input{
     width: 282px;
     height: 48px;
-
+    padding-left: 15px;
     border: 1px solid #F4F5FF;
     box-sizing: border-box;
     border-radius: 8px;
+}
+.input:invalid{
+    border-color: red;
 }
 .input::placeholder{
     font-size: 16px;

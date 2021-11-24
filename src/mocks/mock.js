@@ -1,6 +1,8 @@
 import productImage from "../assets/image/productImage.png";
 
-export const cart = []
+export const cart = [
+
+];
 
 export const productsMock = [
 	{id: 1,

@@ -60,6 +60,8 @@ export const ModalAut = ({active, setActive, user, setOwner}) => {
 				<label className={style.nameInput}>Email</label>
 				<input
 					className={style.input}
+					required
+					pattern={"^[a-z,A-Z]$"}
 					placeholder="Your Email"
 					name="email"
 					type="email"
@@ -68,6 +70,8 @@ export const ModalAut = ({active, setActive, user, setOwner}) => {
 				/>
 				<label className={style.nameInput}>Password</label>
 				<input className={style.input}
+				       required
+				       pattern={"^[a-z,A-Z]{1,10}$"}
 				       placeholder="Your password"
 				       name="password"
 				       type="password"
