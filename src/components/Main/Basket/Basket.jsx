@@ -22,7 +22,7 @@ export const Basket = () => {
 			let calculation = price * item.total;
 			sum += calculation;
 		})
-		setTotal(sum)
+		setTotal(sum)g
 
 	};
 
@@ -50,6 +50,7 @@ export const Basket = () => {
 							img={item.img}
 							titleProduct={item.titleProduct}
 							price={item.price}
+							total={item.total}
 						/>
 					))}
 				</div>

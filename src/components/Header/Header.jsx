@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import classNames from "classnames";
 
 import {Modal} from "./Modal";
 import {ModalAut} from "./ModalAut";
@@ -23,13 +24,24 @@ const Header = ({user, setOwner, logout, number}) => {
     return (
         <header className={style.header}>
             <div className={style.containerHeader}>
-                <div className={style.container}>
-                    <img
-                      className={style.logoHeader}
-                      src={logoHeader}
-                      alt="logo"
-                    />
+              {user ?
+                <div className={classNames(style.container, style.containerLog)}>
+                  <img
+                    className={style.logoHeader}
+                    src={logoHeader}
+                    alt="logo"
+                  />
                 </div>
+              :
+                <div className={style.container}>
+                  <img
+                    className={style.logoHeader}
+                    src={logoHeader}
+                    alt="logo"
+                  />
+                </div>
+              }
+
                 <div className={style.container}>
                     <img
                       className={style.logPeople}

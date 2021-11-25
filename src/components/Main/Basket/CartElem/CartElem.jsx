@@ -40,11 +40,6 @@ export const CartElem = (props) => {
 		})
 
 		const newArr = props.cart.filter(f => {
-
-
-			console.log(newIceCreams)
-
-
 			return f.id !== props.id
 		})
 
@@ -67,20 +62,23 @@ export const CartElem = (props) => {
 						align="middle"
 					/>
 				</div>
-				<p className={style.productTitle}>
-					{props.titleProduct}
-				</p>
-				<p className={style.productPrice}>
-					{props.price}
-				</p>
-				<button
-					onClick={deleteItem}
-					className={style.buttonDelete}>
-					<img
-						className={style.buttonDeletePic}
-						src={deletePic}
-						alt="delete"/>
-				</button>
+				<div className={style.containerInfo}>
+					<p className={style.productTitle}>
+						{props.titleProduct}
+					</p>
+					<p className={style.total}>pts: {props.total}</p>
+					<p className={style.productPrice}>
+						{props.price}
+					</p>
+					<button
+						onClick={deleteItem}
+						className={style.buttonDelete}>
+						<img
+							className={style.buttonDeletePic}
+							src={deletePic}
+							alt="delete"/>
+					</button>
+				</div>
 			</div>
 		</div>
 	)

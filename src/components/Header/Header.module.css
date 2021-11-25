@@ -20,6 +20,16 @@
     margin-right: 0px;
 }
 
+.containerLog{
+    display: flex;
+    margin-right: 575px;
+}
+.containerLog:nth-child(2){
+    margin-right: 53px;
+}
+.containerLog:nth-child(3){
+    margin-right: 0px;
+}
 /*not authorized*/
 .login{
     display: contents;
@@ -54,6 +64,7 @@
     padding: 0;
     font-size: 14px;
     line-height: 16px;
+    margin-top: 5px;
 }
 /*authorized*/
 

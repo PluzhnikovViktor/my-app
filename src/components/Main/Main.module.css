@@ -2,7 +2,7 @@ main{
     min-height: calc(100vh - 86px - 155px);
 }
 .main{
-
+    margin-left: 20px;
 }
 .mainTitle{
     margin: 64px auto 48px;
@@ -23,7 +23,7 @@ main{
 
 .container{
     max-width: 100%;
-
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
 }
@@ -32,13 +32,3 @@ main{
     height: 403px;
 }
 
-@media screen and (max-width: 1200px){
-    .container{
-
-    }
-}
-@media screen and (max-width: 992px){
-    .container{
-        width: 80%;
-    }
-}

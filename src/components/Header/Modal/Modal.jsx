@@ -75,7 +75,7 @@ export const Modal = ({active, setActive}) => {
 				<input className={style.input} placeholder="Your password" name="password"  type="password" onChange={onInputChange} />
 				<button className={style.buttonRegister} disabled={buttonDisabled[0]}>Register</button>
 				<p className={style.uReg}>Do you already have an account?</p>
-				<a href="#">Sing in</a>
+				<a href="#" onClick={() => setActive(false)}>Sing in</a>
 			</form>
 		</div>
 	)

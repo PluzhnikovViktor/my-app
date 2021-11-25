@@ -9,7 +9,7 @@ import {setCountCart} from "../../../../App";
 export const ProductCard = (props) => {
 	const [products, setProducts] = useState(JSON.parse(localStorage.getItem('iceCreams')));
 	const [carts, setCarts] = useState(JSON.parse(localStorage.getItem('cart')) || []);
-	const [counter, setCounter] = useState(0)
+	const [counter, setCounter] = useState(1)
 	const [error, setError] = useState(false)
 	const {id} = useParams();
 	const [currentProduct, setCurrentProduct] = useState({});
@@ -31,7 +31,7 @@ export const ProductCard = (props) => {
 
 	const productToCart = () => {
 		setError(false)
-		const isNextStep = (currentProduct.total - counter) > 0
+		const isNextStep = (currentProduct.total - counter) >= 0
 
 		const newCard = {
 			...currentProduct,
@@ -79,6 +79,8 @@ export const ProductCard = (props) => {
 		}
 	}
 
+	console.log(carts.filter((el) => el.id === +id))
+
 	return (
 		<main className={style.main}>
 			<div className={style.pageLinks}>
@@ -104,7 +106,13 @@ export const ProductCard = (props) => {
 					<div className={style.counterContainer}>
 						<button
 							className={style.counterControl}
-							onClick={() => setCounter(counter - 1)}>
+							onClick={() => {
+								if (counter <= 1){
+									setCounter(counter - 0)
+								} else {
+									setCounter(counter - 1)
+								}
+							}}>
 							<img
 								src={minus}
 								alt="minus"
@@ -123,13 +131,13 @@ export const ProductCard = (props) => {
 							/>
 						</button>
 					</div>
+					{error && <div className={style.error}>this quantity of goods is out of stock</div>}
 				</div>
 				<button
 					className={style.buy}
 					onClick={productToCart}
 				>Add to cart
 				</button>
-				{error && <div>ERROR!</div>}
 			</div>
 		</main>
 	)
